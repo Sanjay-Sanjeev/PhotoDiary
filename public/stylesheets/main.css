@@ -1,0 +1,32 @@
+
+nav {
+background: #b92b27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+.imageholder{
+    border: 1px solid rgba(222, 226, 232,0.9);
+    padding-top: 10px;
+    border-radius: 5px;
+}
+
+.caption {
+    text-align: left;
+}
+
+
+
