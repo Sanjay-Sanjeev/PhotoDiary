@@ -1,0 +1,23 @@
+{
+  "name": "photo_diary",
+  "version": "1.0.0",
+  "description": "An application to share images",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Sanjay-Sanjeev/PhotoDiary.git"
+  },
+  "author": "Sanjay Sanjeev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sanjay-Sanjeev/PhotoDiary/issues"
+  },
+  "homepage": "https://github.com/Sanjay-Sanjeev/PhotoDiary#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}
