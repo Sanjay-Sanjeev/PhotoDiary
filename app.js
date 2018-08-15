@@ -3,8 +3,9 @@ var app = express();
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
+var dbURL = process.env.DATABASEURL || "mongodb://localhost:27017/photo_diary";
 
-mongoose.connect("mongodb://localhost:27017/photo_diary", { useNewUrlParser: true });
+mongoose.connect(dbURL, { useNewUrlParser: true });
 
 var PhotoSchema = mongoose.Schema({
     
