@@ -10,7 +10,8 @@ var PhotoSchema = mongoose.Schema({
     
     title: String,
     image: String,
-    desc: String
+    desc: String,
+    date: { type: Date, default: Date.now}
     
 });
 
@@ -41,8 +42,14 @@ app.get("/photos/new", function(req, res) {
 // Create Route - crete new photo diary and redirect somewhere - POST
 app.post("/photos", function(req, res){
     
-    res.send("POST ROUTE");
-    console.log(req.body);
+    Photo.create( req.body.photo , function(err, createdPhoto){
+        if (err) {
+            console.log(err);
+            res.redirect("/photos");
+        } else {
+            res.redirect("/photos");
+        }
+    } );
     
     
 });
