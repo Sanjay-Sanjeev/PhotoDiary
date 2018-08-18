@@ -10,83 +10,19 @@
 
 <div class="container">
    <div class="row text-center" id="imageholder">
+       <% Photos.forEach(function(Photo){ %>
         <div class="col-md-3 col-sm-6 ">
             <div class="thumbnail"> 
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f96121806d64f986dc5e5d9308afb1&auto=format&fit=crop&w=500&q=60" >
+                    <img src="<%= Photo.image %>" >
                     <div class="caption">
-                        <h5>Elappara</h5>
+                        <h5><%= Photo.title %></h5>
                     </div>
                     <p>
                         <a href="/photos" class="btn btn-sm btn-dark" >View Diary</a>
                     </p>
             </div>
         </div>
-        <div class="col-md-3 col-sm-6 ">
-            <div class="thumbnail"> 
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f96121806d64f986dc5e5d9308afb1&auto=format&fit=crop&w=500&q=60" >
-                    <div class="caption">
-                        <h5>Elappara</h5>
-                    </div>
-                    <p>
-                        <a href="/photos" class="btn btn-sm btn-dark" >View Diary</a>
-                    </p>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 ">
-            <div class="thumbnail"> 
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f96121806d64f986dc5e5d9308afb1&auto=format&fit=crop&w=500&q=60" >
-                    <div class="caption">
-                        <h5>Elappara</h5>
-                    </div>
-                    <p>
-                        <a href="/photos" class="btn btn-sm btn-dark" >View Diary</a>
-                    </p>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 ">
-            <div class="thumbnail"> 
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f96121806d64f986dc5e5d9308afb1&auto=format&fit=crop&w=500&q=60" >
-                    <div class="caption">
-                        <h5>Elappara</h5>
-                    </div>
-                    <p>
-                        <a href="/photos" class="btn btn-sm btn-dark" >View Diary</a>
-                    </p>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 ">
-            <div class="thumbnail"> 
-                    <img src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94926b7d3baac9492dc307a1d6c1ba48&auto=format&fit=crop&w=500&q=60" >
-                    <div class="caption">
-                        <h5>Elappara</h5>
-                    </div>
-                    <p>
-                        <a href="/photos" class="btn btn-sm btn-dark" >View Diary</a>
-                    </p>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 ">
-            <div class="thumbnail"> 
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f96121806d64f986dc5e5d9308afb1&auto=format&fit=crop&w=500&q=60" >
-                    <div class="caption">
-                        <h5>Elappara</h5>
-                    </div>
-                    <p>
-                        <a href="/photos" class="btn btn-sm btn-dark" >View Diary</a>
-                    </p>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 ">
-            <div class="thumbnail"> 
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f96121806d64f986dc5e5d9308afb1&auto=format&fit=crop&w=500&q=60" >
-                    <div class="caption">
-                        <h5>Elappara</h5>
-                    </div>
-                    <p>
-                        <a href="/photos" class="btn btn-sm btn-dark" >View Diary</a>
-                    </p>
-            </div>
-        </div>
+        <% }) %>
     </div>
 </div>
 

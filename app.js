@@ -32,7 +32,20 @@ app.get("/", function(req, res){
 
 // Index Route - show all photos
 app.get("/photos", function(req, res){
-    res.render("photos");
+    
+    Photo.find({}, function(err, Photos){
+        
+        if (err) {
+            console.log(err);
+            res.redirect("back");
+        } else {
+            
+            res.render("photos", { Photos: Photos } );   
+        }
+        
+    });
+    
+    
 });
 
 // New Route - show new photo diary form
