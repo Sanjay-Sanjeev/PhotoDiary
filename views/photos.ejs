@@ -11,15 +11,11 @@
 <div class="container">
    <div class="row text-center" id="imageholder">
        <% Photos.forEach(function(Photo){ %>
-        <div class="col-md-3 col-sm-6 ">
+        <div class="col-md-4 col-sm-6 imageContainer">
+            <a href="/photos">
             <div class="thumbnail"> 
-                    <img src="<%= Photo.image %>" >
-                    <div class="caption">
-                        <h5><%= Photo.title %></h5>
-                    </div>
-                    <p>
-                        <a href="/photos" class="btn btn-sm btn-dark" >View Diary</a>
-                    </p>
+            <img src="<%= Photo.image %>" >
+            </a>
             </div>
         </div>
         <% }) %>

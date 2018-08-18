@@ -13,16 +13,11 @@ nav {
 .thumbnail {
     border: 1px solid rgba(222, 226, 232,0.9);
     border-radius: 5px;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 13px;
+    padding: 0;
+    margin-top: 10px;
+    
 }
 
-.caption {
-    text-align: center;
-}
 
 #imageholder {
     padding-bottom: 25px;
