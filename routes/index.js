@@ -18,4 +18,22 @@ router.get("/register", function(req, res){
 });
 
 
+router.post("/register", function(req, res){
+    
+    var newUser = new User({username: req.body.user.name });
+    User.register( newUser, req.body.user.password ,function(err, createdUser){
+     
+     if (err) {
+         console.log(err);
+         res.redirect("back");
+     } else {
+         console.log(createdUser.username + " User Created");
+         res.redirect("/photos");
+     }
+        
+    });
+});
+
+
+
 module.exports = router;
