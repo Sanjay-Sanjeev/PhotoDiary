@@ -12,7 +12,7 @@ router.get("/photos", function(req, res){
             res.redirect("back");
         } else {
             
-            res.render("photos", { Photos: Photos } );   
+            res.render("photos/photos", { Photos: Photos } );   
         }
         
     });
@@ -22,7 +22,7 @@ router.get("/photos", function(req, res){
 
 // New Route - show new photo diary form
 router.get("/photos/new", function(req, res) {
-    res.render("new");
+    res.render("photos/new");
 });
 
 // Create Route - crete new photo diary and redirect somewhere - POST
@@ -51,7 +51,7 @@ router.get("/photos/:id", function(req, res) {
             res.redirect("back");
         } else {
             
-            res.render("show", { Photo: foundPhoto });
+            res.render("photos/show", { Photo: foundPhoto });
             
         }
         
@@ -69,7 +69,7 @@ router.get("/photos/:id/edit", function(req, res) {
             console.log(err);
             res.redirect("back");
         } else {
-            res.render("edit", { Photo: foundPhoto });
+            res.render("photos/edit", { Photo: foundPhoto });
         }
         
     });
