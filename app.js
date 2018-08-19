@@ -68,6 +68,25 @@ app.post("/photos", function(req, res){
     
 });
 
+// Show route - show specific photo using id
+
+app.get("/photos/:id", function(req, res) {
+    
+    Photo.findById(req.params.id, function(err, foundPhoto){
+        
+        if (err) {
+            console.log(err);
+            res.redirect("back");
+        } else {
+            
+            res.render("show", { Photo: foundPhoto });
+            
+        }
+        
+    });
+    
+    
+});
 
 
 app.listen(process.env.PORT, process.env.IP, function(){

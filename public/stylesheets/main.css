@@ -19,9 +19,25 @@ nav {
 }
 
 
+/* Photos Page */
 #imageholder {
     padding-bottom: 25px;
 }
 
+/* Show Page */
+#description {
+    
+    margin-top: 59px;
+}
 
+/* Show Page */
+#showContainer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
+/* Show Page */
+#imageDescription{
+    
+    margin: 15px 5px;
+}

@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+
+
+<div class="container" id="showContainer">
+    <div class="row">
+        <div class="col-md-9" >
+            <h1><%= Photo.title %></h1>
+            <div class="thumbnail">
+                <img src="<%= Photo.image%>" class="img-fluid">
+                <div class="caption-full" id="imageDescription">
+                    <h4>Diary:</h4>
+                    <p><%= Photo.desc %></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" id="description" >
+            <div class="list-group">
+                <li class="list-group-item active">Captured By</li>
+                <li class="list-group-item">Sanjay Sanjeev</li>
+                <li class="list-group-item"><%=Photo.date.toDateString()%></li>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

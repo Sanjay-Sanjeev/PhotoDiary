@@ -9,12 +9,12 @@
 </div>
 
 <div class="container">
-   <div class="row text-center" id="imageholder">
+   <div class="row text-center" id="imageholder"  >
        <% Photos.forEach(function(Photo){ %>
-        <div class="col-md-4 col-sm-6 imageContainer">
-            <a href="/photos">
+        <div class="col-md-4 col-sm-6 imageContainer" >
+            <a href="/photos/<%= Photo._id %>">
             <div class="thumbnail"> 
-            <img src="<%= Photo.image %>" >
+            <img src="<%= Photo.image %>" class="img-fluid" >
             </a>
             </div>
         </div>
