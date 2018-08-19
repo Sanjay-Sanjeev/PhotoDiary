@@ -1,11 +1,12 @@
 <% include ../partials/header %>
 
-<div class="container">
+
      <div class="jumbotron jumbotron-fluid text-center" id="editJumbotron">
           <div class="container">
             <h1 class="display-4">Edit Your <i class="fas fa-camera-retro"></i> PhotoDiary</h1>
           </div>
         </div>
+    <div class="container">
     <div class="editForm">
         <form method="POST" action="/photos/<%= Photo._id%>?_method=PUT">
           <div class="form-group">
