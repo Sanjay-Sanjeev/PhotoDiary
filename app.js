@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
 
 var dbURL = process.env.DATABASEURL || "mongodb://localhost:27017/photo_diary";
 
@@ -18,9 +19,11 @@ var PhotoSchema = mongoose.Schema({
 
 var Photo = mongoose.model( "Photo" , PhotoSchema  );
 
+app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.use(express.static( __dirname + "/public" ));
 app.use(bodyParser.urlencoded({ extended: true}));
+
 
 // Index Route - Landing Page
 app.get("/", function(req, res){
@@ -88,6 +91,52 @@ app.get("/photos/:id", function(req, res) {
     
 });
 
+// Edit route - edit particular photo
+app.get("/photos/:id/edit", function(req, res) {
+    
+    Photo.findById(req.params.id, function(err, foundPhoto){
+        
+        if (err) {
+            console.log(err);
+            res.redirect("back");
+        } else {
+            res.render("edit", { Photo: foundPhoto });
+        }
+        
+    });
+    
+    
+});
+
+// Update Route - Edit details of particular photo using PUT route
+app.put("/photos/:id", function(req, res){
+    
+    Photo.findByIdAndUpdate(req.params.id, req.body.photo , function(err, updatedPhoto){
+        
+        if (err) {
+            console.log(err);
+            res.redirect("back");
+        } else {
+            res.redirect("/photos");
+        }
+        
+    });
+    
+});
+
+// DESTROY Route - To delete a particular photo
+app.delete("/photos/:id", function(req, res){
+    
+    Photo.findByIdAndRemove(req.params.id, function(err){
+        if (err) {
+            console.log(err);
+            res.redirect("back");
+        } else {
+            res.redirect("/photos");
+        }
+    });
+    
+});
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Photo Diary Server Started...");

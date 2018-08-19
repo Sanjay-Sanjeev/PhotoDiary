@@ -1,7 +1,20 @@
-.newForm {
+.newForm, .editForm {
     
-    padding-top: 20px;
+    padding-top: 10px;
     max-width: 600px;
     margin: auto;
     
 }
+
+
+#editJumbotron, #newJumbotron {
+    margin-top: 20px;
+    background-image: url("https://images.unsplash.com/photo-1508012340316-cdf9d309cea0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dc8d6b5aa44eb38e22ce51f5a98d0e07&auto=format&fit=crop&w=890&q=80");
+    background-size: cover;
+    
+}
+
+#deletePhoto {
+    display: inline;
+}
+
