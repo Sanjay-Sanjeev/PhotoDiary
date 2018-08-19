@@ -6,6 +6,7 @@ var methodOverride = require("method-override");
 
 var Photo = require("./models/photos.js");
 var photosRoutes = require("./routes/photos");
+var indexRoutes = require("./routes/index");
 
 var dbURL = process.env.DATABASEURL || "mongodb://localhost:27017/photo_diary";
 
@@ -17,13 +18,7 @@ app.use(express.static( __dirname + "/public" ));
 app.use(bodyParser.urlencoded({ extended: true}));
 
 
-// Index Route - Landing Page
-app.get("/", function(req, res){
-    
-    res.render("home");
-    
-});
-
+app.use(indexRoutes);
 app.use(photosRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
