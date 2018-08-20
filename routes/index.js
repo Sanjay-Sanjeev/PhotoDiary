@@ -40,13 +40,14 @@ router.post("/register", function(req, res){
 
 //login route
 router.get("/login", function(req, res) {
-    res.render("login");
+    res.render("login", { message: req.flash("error") });
 });
 
 //login route POST
 router.post("/login", passport.authenticate("local", {
     successRedirect: "/photos",
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    failureFlash: "Please check your Username or Password" 
 })  , function(req, res){});
 
 //logout route
