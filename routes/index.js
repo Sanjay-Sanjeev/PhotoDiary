@@ -28,11 +28,13 @@ router.post("/register", function(req, res){
          res.redirect("back");
      } else {
          console.log(createdUser.username + " User Created");
+         req.flash("success", "Successfully Registered! Welcome to PhotoDiary " + createdUser.username);
          res.redirect("/photos");
      }
         
     });
 });
+
 
 
 
