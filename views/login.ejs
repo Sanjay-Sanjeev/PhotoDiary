@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+
+
+    <div class="jumbotron jumbotron-fluid text-center" id="loginJumbotron">
+          <div class="container">
+            <h1 class="display-4">Login to your <i class="fas fa-camera-retro"></i> PhotoDiary Account</h1>
+          </div>
+        </div>
+        <div class="container">
+    <div class="newForm">
+        <form method="POST" action="/login">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="title" name="user[name]" placeholder="Enter Username" required>
+            <small id="usernameHelp" class="form-text text-muted">Enter the Username of your account.</small>
+          </div>
+          <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" name="user[password]" placeholder="Enter your password" required>
+            <small id="passwordHelp" class="form-text text-muted">Enter the Password of your account.</small>
+          </div>
+          <button id="createButton" type="submit" class="btn btn-warning btn-block">Login to Your Account</button>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer %>
