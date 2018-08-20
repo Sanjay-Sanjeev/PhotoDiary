@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
+var flash = require("connect-flash");
 var bodyParser = require("body-parser");
 var passport = require("passport");
 var localStrategy = require("passport-local");
@@ -26,6 +27,7 @@ app.use(require("express-session")({
 }));
 
 app.use(methodOverride("_method"));
+app.use(flash());
 app.set("view engine", "ejs");
 app.use(express.static( __dirname + "/public" ));
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -35,6 +37,13 @@ app.use(passport.session());
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// For flash and User
+app.use(function(req, res, next){
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+});
 
 app.use(indexRoutes);
 app.use(photosRoutes);
