@@ -29,11 +29,20 @@ router.get("/photos/new", middleware.isLoggedIn  , function(req, res) {
 // Create Route - crete new photo diary and redirect somewhere - POST
 router.post("/photos", middleware.isLoggedIn , function(req, res){
     
-    Photo.create( req.body.photo , function(err, createdPhoto){
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    };
+    var title = req.body.title;
+    var image = req.body.image;
+    var desc =  req.body.desc;
+    var newPhoto = {title: title, image: image, desc: desc, author: author  };
+    Photo.create( newPhoto , function(err, createdPhoto){
         if (err) {
             console.log(err);
             res.redirect("/photos");
         } else {
+            
             res.redirect("/photos");
         }
     } );

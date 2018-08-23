@@ -9,12 +9,14 @@
             <div class="thumbnail">
                 <img src="<%= Photo.image%>" class="img-fluid">
                 <div class="caption-full" id="imageDescription">
+                    <% if(currentUser && Photo.author.id.equals(currentUser._id)){ %>
                     <div class="float-right">
                     <a class="btn btn-outline-success btn-sm" href="/photos/<%= Photo._id %>/edit">Edit</a>
                     <form method="POST" action="/photos/<%= Photo._id %>?_method=DELETE" id="deletePhoto">
                         <button class="btn btn-outline-danger btn-sm">Delete</button>
                     </form>
                     </div>
+                    <% } %>
                     <h4>Diary:</h4>
                     <p><%= Photo.desc %></p>
                 </div>
