@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Photo = require("../models/photos");
+var middleware = require("../middleware");
 
 // Index Route - show all photos
 router.get("/photos", function(req, res){
@@ -21,12 +22,12 @@ router.get("/photos", function(req, res){
 });
 
 // New Route - show new photo diary form
-router.get("/photos/new", function(req, res) {
+router.get("/photos/new", middleware.isLoggedIn  , function(req, res) {
     res.render("photos/new");
 });
 
 // Create Route - crete new photo diary and redirect somewhere - POST
-router.post("/photos", function(req, res){
+router.post("/photos", middleware.isLoggedIn , function(req, res){
     
     Photo.create( req.body.photo , function(err, createdPhoto){
         if (err) {
