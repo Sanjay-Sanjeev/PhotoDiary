@@ -1,17 +1,19 @@
 var express = require("express");
 var app = express();
-var mongoose = require("mongoose");
-var flash = require("connect-flash");
 var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
+var User = require("./models/user.js");
+var Photo = require("./models/photos.js");
+var flash = require("connect-flash");
 var passport = require("passport");
 var localStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var methodOverride = require("method-override");
 
-var Photo = require("./models/photos.js");
-var User = require("./models/user.js");
-var photosRoutes = require("./routes/photos");
+
 var indexRoutes = require("./routes/index");
+var photosRoutes = require("./routes/photos");
+
 
 var dbURL = process.env.DATABASEURL || "mongodb://localhost:27017/photo_diary";
 

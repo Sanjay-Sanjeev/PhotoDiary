@@ -47,7 +47,7 @@ router.get("/login", function(req, res) {
 router.post("/login", passport.authenticate("local", {
     successRedirect: "/photos",
     failureRedirect: "/login",
-    failureFlash: "Please check your Username or Password" 
+    
 })  , function(req, res){});
 
 //logout route
