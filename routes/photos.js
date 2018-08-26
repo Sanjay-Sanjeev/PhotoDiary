@@ -71,7 +71,7 @@ router.get("/photos/:id", function(req, res) {
 });
 
 // Edit route - edit particular photo
-router.get("/photos/:id/edit", function(req, res) {
+router.get("/photos/:id/edit", middleware.checkPhotoOwnership , function(req, res) {
     
     Photo.findById(req.params.id, function(err, foundPhoto){
         
@@ -88,7 +88,7 @@ router.get("/photos/:id/edit", function(req, res) {
 });
 
 // Update Route - Edit details of particular photo using PUT route
-router.put("/photos/:id", function(req, res){
+router.put("/photos/:id", middleware.checkPhotoOwnership , function(req, res){
     
     Photo.findByIdAndUpdate(req.params.id, req.body.photo , function(err, updatedPhoto){
         
@@ -104,7 +104,7 @@ router.put("/photos/:id", function(req, res){
 });
 
 // DESTROY Route - To delete a particular photo
-router.delete("/photos/:id", function(req, res){
+router.delete("/photos/:id", middleware.checkPhotoOwnership , function(req, res){
     
     Photo.findByIdAndRemove(req.params.id, function(err){
         if (err) {
