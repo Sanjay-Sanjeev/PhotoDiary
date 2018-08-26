@@ -13,7 +13,7 @@ router.get("/photos", function(req, res){
             res.redirect("back");
         } else {
             
-            res.render("photos/photos", { Photos: Photos } );   
+            res.render("photos/photos", { Photos: Photos, message: req.flash("success") } );   
         }
         
     });

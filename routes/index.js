@@ -47,6 +47,8 @@ router.get("/login", function(req, res) {
 router.post("/login", passport.authenticate("local", {
     successRedirect: "/photos",
     failureRedirect: "/login",
+    failureFlash: "Please check Username or Password enetered!",
+    successFlash: "Welcome to PhotoDiary!" 
     
 })  , function(req, res){});
 
