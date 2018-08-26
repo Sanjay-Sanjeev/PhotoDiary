@@ -7,6 +7,10 @@
     
 }
 
+#commentButton {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 #editJumbotron, #newJumbotron, #loginJumbotron {
 
