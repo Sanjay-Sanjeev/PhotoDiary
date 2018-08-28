@@ -21,22 +21,21 @@
                     <p><%= Photo.desc %></p>
                 </div>
             </div>
-            <div id="commentButton" class="text-right">
-                <a href="" class="btn btn-warning btn-sm">Add New Comment</a>
-            </div>
             <div class="card">
                 <div class="card-header">
-                 <strong>Comments</strong>
+                 <strong>Comments</strong><a href="/photos/<%=Photo._id%>/comments/new" class="btn btn-warning btn-sm float-right">Add New Comment</a>
                 </div>
+                <% Photo.comments.forEach(function(comment){ %>
                 <div class="card-body">
-                <h6 class="card-title">
-                    Sanjay
-                    <a href="#" class="btn btn-outline-danger btn-sm float-right" style="margin: 2px;">Delete</a>
-                    <a href="#" class="btn btn-outline-success btn-sm float-right" style="margin: 2px;">Edit</a>
-                    
-                </h6>
-                <p class="card-text"><em>With supporting text below as a natural lead-in to additional content.</em></p>
-              </div>
+                    <h6 class="card-title">
+                        <%= comment.author.username %>
+                        <a href="#" class="btn btn-outline-danger btn-sm float-right" style="margin: 2px;">Delete</a>
+                        <a href="#" class="btn btn-outline-success btn-sm float-right" style="margin: 2px;">Edit</a>
+                        
+                    </h6>
+                    <p class="card-text"><em><%= comment.text %></em></p>
+                </div>
+                <% }) %>
             </div>
         </div>
         <div class="col-md-3" id="description" >

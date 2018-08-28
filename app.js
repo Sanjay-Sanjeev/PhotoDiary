@@ -13,6 +13,7 @@ var methodOverride = require("method-override");
 
 var indexRoutes = require("./routes/index");
 var photosRoutes = require("./routes/photos");
+var commentsRoutes = require("./routes/comment");
 
 
 var dbURL = process.env.DATABASEURL || "mongodb://localhost:27017/photo_diary";
@@ -49,8 +50,10 @@ app.use(function(req, res, next){
     next();
 });
 
+app.use(commentsRoutes);
 app.use(indexRoutes);
 app.use(photosRoutes);
+
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Photo Diary Server Started...");

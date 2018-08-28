@@ -1,0 +1,19 @@
+<% include ../../partials/header %>
+
+<div class="container">
+    <div class="newForm">
+        <div class="thumbnail">
+          <img src="<%= Photo.image %>">
+        </div>
+        <form method="POST" action="/photos/<%=Photo._id%>/comments/new">
+          <div class="form-group">
+           <label for="comment"><strong>Add Comment</strong></label>
+           <textarea class="form-control" name="newcomment" rows="3"></textarea>
+           <small id="descHelp" class="form-text text-muted">Share what you feel about this click!</small>
+         </div>
+          <button type="submit" class="btn btn-warning btn-block">Add Comment</button>
+        </form>
+    </div>
+</div>
+
+<% include ../../partials/footer %>

@@ -54,7 +54,7 @@ router.post("/photos", middleware.isLoggedIn , function(req, res){
 
 router.get("/photos/:id", function(req, res) {
     
-    Photo.findById(req.params.id, function(err, foundPhoto){
+    Photo.findById(req.params.id).populate("comments").exec(function(err, foundPhoto){
         
         if (err) {
             console.log(err);

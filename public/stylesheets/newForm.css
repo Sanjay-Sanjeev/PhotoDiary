@@ -7,9 +7,8 @@
     
 }
 
-#commentButton {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.card {
+    margin-top: 12px;
 }
 
 #editJumbotron, #newJumbotron, #loginJumbotron {
