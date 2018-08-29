@@ -3,6 +3,7 @@ var User = require("../models/user");
 var middlewareObject = {};
 
 
+
 middlewareObject.checkPhotoOwnership = function(req, res, next){
   
   if(req.isAuthenticated()){

@@ -49,4 +49,43 @@ router.post("/photos/:id/comments/new", middleware.isLoggedIn , function(req, re
     
 });
 
+router.get("/photos/:id/comments/:commentId/edit", function(req, res){
+    
+    Comment.findById(req.params.commentId, function(err, foundComment) {
+        
+        if (err) {
+            
+            console.log(err);
+            req.flash("error","Oops!! Something went wrong! Please try again");
+            res.redirect("/photos");
+            
+        } else {
+            
+            res.render("comments/edit", { photo_id: req.params.id, Comment: foundComment  });
+        }
+        
+    });
+    
+    
+});
+
+router.put("/photos/:id/comments/:commentId", function(req, res){
+    
+    Comment.findByIdAndUpdate( req.params.commentId, req.body.comment , function(err, updatedComment){
+        
+        if (err) {
+            console.log(err);
+            req.flash("error","Oops! Something went wrong!! Please try again!");
+            res.redirect("/photos/" + req.params.id);
+            
+        } else {
+            
+            res.redirect("/photos/" + req.params.id);
+        }
+        
+    } );
+    
+});
+
+
 module.exports = router;

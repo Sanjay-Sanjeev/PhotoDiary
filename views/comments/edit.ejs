@@ -1,0 +1,19 @@
+<% include ../../partials/header %>
+
+<div class="container">
+    <div class="newForm">
+        <div class="thumbnail">
+          <img src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cdff4c62302fd44491d4850202323d11&auto=format&fit=crop&w=500&q=60">
+        </div>
+        <form method="POST" action="/photos/<%=photo_id%>/comments/<%= Comment._id %>?_method=PUT">
+          <div class="form-group">
+           <label for="comment"><strong>Edit Comment</strong></label>
+           <textarea class="form-control" name="comment[text]" rows="3"><%= Comment.text %></textarea>
+           <small id="descHelp" class="form-text text-muted">Share what you feel about this click!</small>
+         </div>
+          <button type="submit" class="btn btn-warning btn-block">Edit Comment</button>
+        </form>
+    </div>
+</div>
+
+<% include ../../partials/footer %>
