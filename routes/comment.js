@@ -69,9 +69,9 @@ router.get("/photos/:id/comments/:commentId/edit", middleware.checkCommentOwners
     
 });
 
-router.put("/photos/:id/comments/:commentId", function(req, res){
+router.put("/photos/:id/comments/:commentId",  middleware.checkCommentOwnership, function(req, res){
     
-    Comment.findByIdAndUpdate( req.params.commentId, req.body.comment , middleware.checkCommentOwnership ,function(err, updatedComment){
+    Comment.findByIdAndUpdate( req.params.commentId, req.body.comment  ,function(err, updatedComment){
         
         if (err) {
             console.log(err);
