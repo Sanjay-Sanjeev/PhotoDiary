@@ -12,7 +12,7 @@
                     <% if(currentUser && Photo.author.id.equals(currentUser._id)){ %>
                     <div class="float-right">
                     <a class="btn btn-outline-success btn-sm" href="/photos/<%= Photo._id %>/edit">Edit</a>
-                    <form method="POST" action="/photos/<%= Photo._id %>?_method=DELETE" id="deletePhoto">
+                    <form method="POST" action="/photos/<%= Photo._id %>?_method=DELETE" class="deletePhotoAndComment">
                         <button class="btn btn-outline-danger btn-sm">Delete</button>
                     </form>
                     </div>
@@ -30,7 +30,9 @@
                     <h6 class="card-title" >
                         <%= comment.author.username %>
                         <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-                        <a href="#" class="btn btn-outline-danger btn-sm float-right" style="margin: 2px;">Delete</a>
+                        <form class="deletePhotoAndComment" method="POST" action="/photos/<%= Photo._id %>/comments/<%= comment._id%>?_method=DELETE">
+                            <button class="btn btn-outline-danger btn-sm float-right" style="margin: 2px;">Delete</button>
+                        </form>
                         <a href="/photos/<%= Photo._id %>/comments/<%= comment._id %>/edit" class="btn btn-outline-success btn-sm float-right" style="margin: 2px;">Edit</a>
                         <% } %>
                     </h6>

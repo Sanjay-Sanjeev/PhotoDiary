@@ -24,7 +24,7 @@
     color: white;
 }
 
-#deletePhoto {
+.deletePhotoAndComment {
     display: inline;
 }
 

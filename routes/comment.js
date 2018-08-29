@@ -49,7 +49,7 @@ router.post("/photos/:id/comments/new", middleware.isLoggedIn , function(req, re
     
 });
 
-router.get("/photos/:id/comments/:commentId/edit", function(req, res){
+router.get("/photos/:id/comments/:commentId/edit", middleware.checkCommentOwnership ,function(req, res){
     
     Comment.findById(req.params.commentId, function(err, foundComment) {
         
@@ -71,7 +71,7 @@ router.get("/photos/:id/comments/:commentId/edit", function(req, res){
 
 router.put("/photos/:id/comments/:commentId", function(req, res){
     
-    Comment.findByIdAndUpdate( req.params.commentId, req.body.comment , function(err, updatedComment){
+    Comment.findByIdAndUpdate( req.params.commentId, req.body.comment , middleware.checkCommentOwnership ,function(err, updatedComment){
         
         if (err) {
             console.log(err);
@@ -87,5 +87,19 @@ router.put("/photos/:id/comments/:commentId", function(req, res){
     
 });
 
+router.delete("/photos/:id/comments/:commentId", middleware.checkCommentOwnership ,function(req, res){
+    
+    Comment.findByIdAndRemove( req.params.commentId, function(err){
+        if (err) {
+            console.log(err);
+            req.flash("error","Oops! Something went wrong!! Please try again!");
+            res.redirect("/photos/" + req.params.id);
+            
+        } else {
+            req.flash("success", "Comment deleted successfully!!");
+            res.redirect("/photos/" + req.params.id);
+        }
+    } );
+});
 
 module.exports = router;
